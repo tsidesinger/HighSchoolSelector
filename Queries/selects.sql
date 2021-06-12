@@ -3,6 +3,8 @@ SELECT * from StudentProfile where studentid = 1;
 
 SELECT * FROM School;
 
+DELETE FROM School;
+
 SELECT * FROM StudentSchoolChoice;
 
 SELECT * FROM StudentProfile s left outer join 
@@ -13,3 +15,5 @@ where s.StudentId = 2
 select * from StudentSchoolChoice c inner join School s 
 on c.schoolId = s.schoolId where studentId=1 
 order by c.Rank asc--@studentId
+
+-- Delete rows from table 'School'

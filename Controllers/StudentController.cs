@@ -52,9 +52,17 @@ namespace HighSchoolSelector.Controllers
         }
 
         [HttpPost]
-        public void PostSchoolChoices(IEnumerable<int> choices) 
+        public void PostSchoolChoices(int studentId, IEnumerable<int> choices) 
         {
-        
+            using (var connection = new SqlConnection(_configuration["HighSchoolSettings:ConnectionString"]))
+            {
+                connection.Execute("DELETE FROM StudentSchoolChoice where studentId=@studentId", new { studentId});
+                for(var i = 0; i < choices.Count(); i++)
+                {
+                    connection.Execute("insert into StudentSchoolChoice (StudentId, SchoolId, Rank) values (@studentId, @schoolId, @rank)",
+                     new {studentId, schoolId = choices.ToList()[i], rank = i+1 });
+                } 
+            }
         }
     }
 }
