@@ -1,5 +1,5 @@
 using System;
-
+using System.Collections.Generic;
 namespace HighSchoolSelector
 {
     public class StudentProfile
@@ -14,7 +14,7 @@ namespace HighSchoolSelector
 
         public double GradePointAverage { get; set; }
 
-        // public List<School> SchoolRankings { get; set; }
+        public IEnumerable<School> SchoolRankings { get; set; }
 
         public School PlacementSchool { get; set; }
 

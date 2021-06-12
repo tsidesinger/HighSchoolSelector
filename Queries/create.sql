@@ -11,3 +11,21 @@ CREATE TABLE StudentProfile
     -- specify more columns here
 );
 GO
+
+CREATE TABLE School
+(
+    SchoolId INT NOT NULL PRIMARY KEY,
+    SchoolName [NVARCHAR](50) NOT NULL,
+    MinimiumTestScore INT,
+    NumSeats INT,
+    MinimiumGpa FLOAT
+);
+GO
+
+CREATE TABLE StudentSchoolChoice
+(
+    StudentSchoolChoiceId INT NOT NULL PRIMARY KEY,
+    StudentId INT NOT NULL,
+    SchoolId INT NOT NULL,
+    Rank INT NOT NULL
+);
