@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Dapper;
+using System.Data.SqlClient;
+using System.Linq;
+using Microsoft.Extensions.Configuration;
 
 namespace HighSchoolSelector.Controllers
 {
@@ -11,22 +14,30 @@ namespace HighSchoolSelector.Controllers
     [Route("[controller]")]
     public class StudentController : ControllerBase
     {
-        public StudentController()
-        {
+        private IConfiguration _configuration;
 
+        public StudentController(IConfiguration configuration)
+        {
+            _configuration = configuration;
         }
 
         [HttpGet]
         public StudentProfile Get()
         {
-            return new StudentProfile
+            using (var connection = new SqlConnection(_configuration["HighSchoolSettings:ConnectionString"]))
             {
-                Id = 100,
-                EntranceExamScore = 93,
-                FirstName = "Toe",
-                LastName = "Moss",
-                GradePointAverage = 3.2
-            };
+                var student = connection.Query<StudentProfile>("select * from StudentProfile where StudentId=1").SingleOrDefault();
+                return student;
+            }
+
+            // return new StudentProfile
+            // {
+            //     Id = 100,
+            //     EntranceExamScore = 93,
+            //     FirstName = "Toe",
+            //     LastName = "Moss",
+            //     GradePointAverage = 3.2
+            // };
         }
     }
 }

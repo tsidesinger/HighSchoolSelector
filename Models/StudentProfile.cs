@@ -4,7 +4,7 @@ namespace HighSchoolSelector
 {
     public class StudentProfile
     {
-        public int Id { get; set; }
+        public int StudentId { get; set; }
 
         public string FirstName { get; set; }
 
