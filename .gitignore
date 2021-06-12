@@ -8,5 +8,7 @@
 # Local History for Visual Studio Code
 .history/
 
-bin
-obj
+bin/*
+obj/*
+
+secrets.json
