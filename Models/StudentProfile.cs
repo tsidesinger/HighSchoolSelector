@@ -16,7 +16,7 @@ namespace HighSchoolSelector
 
         // public List<School> SchoolRankings { get; set; }
 
-        // public School PlacementSchool { get; set; }
+        public School PlacementSchool { get; set; }
 
         // public List<WaitListSchool> WaitList { get; set; }
     }

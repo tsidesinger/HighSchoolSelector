@@ -25,7 +25,16 @@ namespace HighSchoolSelector.Controllers
                 EntranceExamScore = 93,
                 FirstName = "Toe",
                 LastName = "Moss",
-                GradePointAverage = 3.2
+                GradePointAverage = 3.2,
+                PlacementSchool = new School
+                {
+                    Id = 1,
+                    MinimiumGpa = 2.5,
+                    MinimiumTestScore = 85,
+                    NumSeats = 400,
+                    SchoolName = "Boerum Hill School For International Studies"
+
+                }
             };
         }
     }
