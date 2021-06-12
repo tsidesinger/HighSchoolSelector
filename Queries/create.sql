@@ -24,7 +24,7 @@ GO
 
 CREATE TABLE StudentSchoolChoice
 (
-    StudentSchoolChoiceId INT NOT NULL PRIMARY KEY,
+    StudentSchoolChoiceId INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
     StudentId INT NOT NULL,
     SchoolId INT NOT NULL,
     Rank INT NOT NULL
