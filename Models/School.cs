@@ -13,4 +13,6 @@ namespace HighSchoolSelector
 
         public double MinimiumGpa { get; set; }
     }
+
+    
 }

@@ -7,10 +7,13 @@ CREATE TABLE StudentProfile
     FirstName [NVARCHAR](50) NOT NULL,
     LastName [NVARCHAR](50) NOT NULL,
     GradePointAverage FLOAT,
-    EntranceExamScore INT
+    EntranceExamScore INT,
+    PlacementSchoolId INT
     -- specify more columns here
 );
 GO
+ALTER TABLE StudentProfile 
+ADD PlacementSchoolId int;
 
 CREATE TABLE School
 (
@@ -29,3 +32,4 @@ CREATE TABLE StudentSchoolChoice
     SchoolId INT NOT NULL,
     Rank INT NOT NULL
 );
+go
